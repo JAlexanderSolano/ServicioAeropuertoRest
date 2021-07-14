@@ -24,6 +24,7 @@ namespace ServicioAeropuertoRest
         {
             services.AddRazorPages();
             services.AddControllers();
+            services.AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:10978/").AllowAnyHeader().AllowAnyMethod()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +44,7 @@ namespace ServicioAeropuertoRest
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
