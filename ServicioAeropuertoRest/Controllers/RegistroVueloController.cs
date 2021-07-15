@@ -5,16 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ServicioAeropuertoRest.Controllers
 {
+    [EnableCors("Todos")]
     [Route("api/[controller]")]
     [ApiController]
     public class RegistroVueloController : ControllerBase
     {
         // GET: api/<RegistroVueloController>
+        [EnableCors("Todos")]
         [HttpPost("[action]")]
         public IActionResult RegistrarVuelo([FromBody] itemRegistroVuelo itemRegistroVuelo)
         {
